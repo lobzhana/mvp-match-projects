@@ -3,12 +3,14 @@ import styled from 'styled-components';
 const Container = styled.div`
   width: 24px;
   margin-left: 36px;
-  margin-top: 41px;
   height: 100%;
 
   .menu-item {
     cursor: pointer;
-    margin-top: 25px;
+  }
+
+  .menu-item:not(:first-child) {
+    margin-top: 24px;
   }
 `;
 
@@ -18,7 +20,7 @@ const menuItems = [
     imgUrl: '../../../assets/images/menu-items/menu-item-1.svg',
   },
   {
-    title: 'Menu Item 3',
+    title: 'Menu Item 2',
     imgUrl: '../../../assets/images/menu-items/menu-item-2.svg',
   },
   {
@@ -39,7 +41,7 @@ export const MenuBar = () => {
   return (
     <Container>
       {menuItems.map((mItem) => (
-        <div className="menu-item">
+        <div key={mItem.title} className="menu-item">
           <img src={mItem.imgUrl} alt={mItem.title} />
         </div>
       ))}
